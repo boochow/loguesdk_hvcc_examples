@@ -4,6 +4,7 @@ PD_DIR ?= ./pd
 PD_FILES := $(wildcard $(PD_DIR)/*.pd)
 PATCHES := $(notdir $(basename $(PD_FILES)))
 INSTALLDIR ?= ..
+PDLIBDIR ?= ./heavylib
 
 INSTALL :=INSTALLDIR=$(INSTALLDIR) install
 
@@ -12,7 +13,7 @@ all: $(PATCHES)
 $(PATCHES):
 	@echo "Processing $@..."
 	mkdir -p $@
-	hvcc $(PD_DIR)/$@.pd -G loguesdk_v1 -o $@ -n $@
+	hvcc $(PD_DIR)/$@.pd -G loguesdk_v1 -o $@ -n $@ -p $(PDLIBDIR)
 	cd $@/logue_unit && \
 		make PLATFORMDIR=$(PLATFORMDIR)/nutekt-digital $(INSTALL) && \
 		make PLATFORMDIR=$(PLATFORMDIR)/prologue $(INSTALL) && \
