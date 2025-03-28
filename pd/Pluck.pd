@@ -13,7 +13,8 @@
 #X obj 89 136 delwrite~ buf 30;
 #X obj 89 192 delread~ buf 1;
 #X obj 222 235 r shape_f @hv_param 0.9 1 0.95;
-#X text 172 290 Note: this patch is only for prologue and minilogue xd;
+#X obj 258 281 r noteon_trig @hv_param;
+#X msg 258 312 \; buf const 0;
 #X connect 0 0 11 0;
 #X connect 1 0 6 0;
 #X connect 1 0 0 0;
@@ -27,3 +28,4 @@
 #X connect 10 0 9 0;
 #X connect 12 0 1 0;
 #X connect 13 0 1 1;
+#X connect 14 0 15 0;
