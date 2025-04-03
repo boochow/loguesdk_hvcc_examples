@@ -19,6 +19,18 @@ $(PATCHES):
 		make PLATFORMDIR=$(PLATFORMDIR)/prologue $(INSTALL) && \
 		make PLATFORMDIR=$(PLATFORMDIR)/minilogue-xd $(INSTALL)
 
+%.zip: %
+	@echo "Archiving $@..."
+	$(MAKE) -C $</logue_unit clean
+	cd $< && \
+	ln -s logue_unit src && \
+	zip -r $@ src $<.ntkdigunit $<.mnlgxdunit $<.prlgunit ; \
+	rm -f src
+
+.PHONY: zip
+zip: $(PATCHES:%=%.zip)
+	@echo "All patch archives have been created."
+
 .PHONY: clean
 clean:
 	@for patch in $(PATCHES); do \
