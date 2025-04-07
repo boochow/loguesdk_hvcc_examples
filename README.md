@@ -54,7 +54,8 @@ If you want to modify the patches yourself, follow these steps:
   A kick drum sound generated using a sine wave.
 
 - **osc-white.pd**  
-  A sample that generates noise. The `[noise~]` object in Pure Data is too large for use with the logue SDK, so this sample provides an alternative method.
+- **osc-white64.pd**  
+  A sample that generates noise. The `[noise~]` object in Pure Data is too large for use with the logue SDK, so this sample provides an alternative method. Note that `osc-white64.pd` is designed exclusively for the NTS-1 and will not work on the Prologue or Minilogue XD.
 
 - **Pluck.pd**  
 - **Pluck-64.pd**  
