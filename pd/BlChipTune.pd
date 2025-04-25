@@ -11,6 +11,10 @@
 #X obj 470 105 r waveform @hv_param 0 1 0;
 #X obj 440 154 == 0;
 #X obj 502 154 == 1;
+#X msg 440 189 \$1 10;
+#X obj 440 223 line~;
+#X msg 502 189 \$1 10;
+#X obj 502 223 line~;
 #X connect 1 0 3 0;
 #X connect 2 0 3 0;
 #X connect 4 0 5 0;
@@ -20,5 +24,9 @@
 #X connect 7 0 2 0;
 #X connect 9 0 10 0;
 #X connect 9 0 11 0;
-#X connect 10 0 1 1;
-#X connect 11 0 2 1;
+#X connect 10 0 12 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 1 1;
+#X connect 14 0 15 0;
+#X connect 15 0 2 1;
